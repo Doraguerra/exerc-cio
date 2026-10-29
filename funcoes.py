@@ -30,4 +30,12 @@ def faz_jogada(tabuleiro, linha, coluna):
         tabuleiro[linha][coluna] = '-'
     return tabuleiro
 
+def posiciona_frota(frota):
+    tabuleiro_novo = [[0]*10 for n in range(10)]
+    for i in frota:
+        for l in frota[i]:
+            for x in l:
+                tabuleiro_novo[x[0]][x[1]] = 1
+    return tabuleiro_novo
+
 
