@@ -26,8 +26,9 @@ def preenche_frota (frota, nome, linha, coluna, orientacao,tamanho):
 def faz_jogada(tabuleiro, linha, coluna):
     if tabuleiro[linha][coluna] == 1:
         tabuleiro[linha][coluna] = 'x'
+        return True
     else:
         tabuleiro[linha][coluna] = '-'
-    return tabuleiro
+        return False
 
 
