@@ -38,4 +38,13 @@ def posiciona_frota(frota):
                 tabuleiro_novo[x[0]][x[1]] = 1
     return tabuleiro_novo
 
-
+def afundados (dicionario, tabuleiro):
+    acertos = 0
+    contagem = 0
+    for i in dicionario:
+        for p in dicionario[i]:
+            if tabuleiro[p] == 'X':
+                contagem = 1
+        if contagem == len(dicionario[i]):
+            acertos += 1
+    return acertos
