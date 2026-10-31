@@ -43,7 +43,7 @@ def afundados (dicionario, tabuleiro):
     contagem = 0
     for i in dicionario:
         for p in dicionario[i]:
-            acertos = 0
+            contagem = 0
             for a in p:
                 if tabuleiro[a[0]][a[1]] == 'X':
                     contagem += 1
