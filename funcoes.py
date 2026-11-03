@@ -43,7 +43,10 @@ def posicao_valida (frota, linha, coluna, orientacao, tamanho):
     tabuleiro_pronto = posiciona_frota(frota)
     l = 0
     c = 0
-    for posicao[l][c] in tabuleiro_pronto:
-        return True
+    for casa in posicao:
+        if casa[0] <= 10 and casa[1] <= 10 and casa[0] >= 0 and casa[1] >= 0 and tabuleiro_pronto[casa[0]][casa[1]] == 0:
+            return True
+        else:
+            return False
 
 
