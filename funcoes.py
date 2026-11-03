@@ -38,4 +38,12 @@ def posiciona_frota(frota):
                 tabuleiro_novo[x[0]][x[1]] = 1
     return tabuleiro_novo
 
+def posicao_valida (linha, coluna, frota, orientacao, tamanho):
+    posicao = define_posicoes(linha,coluna,orientacao,tamanho)
+    tabuleiro_pronto = posiciona_frota(frota)
+    if posicao in tabuleiro_pronto and posicao[linha][coluna] == 0:
+        return True
+    else:
+        return False
+
 
