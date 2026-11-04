@@ -66,12 +66,11 @@ def monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente):
     return texto
 
 acertos = 0
+tabuleiros = monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente)
+print(tabuleiros)
 
 
 while acertos != 10:
-
-    tabuleiros = monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente)
-    print(tabuleiros)
 
     linhaj = int(input('Jogador, qual linha deseja atacar? '))
     while linhaj < 0 or linhaj > 9:
@@ -87,4 +86,7 @@ while acertos != 10:
     else:
         faz_jogada(tabuleiro_oponente, linhaj, colunaj)
         acertos = afundados(frota_oponente, tabuleiro_oponente)
+        if acertos != 10:
+            tabuleiros = monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente)
+            print(tabuleiros)
 print ('Parabéns! Você derrubou todos os navios do seu oponente!')
