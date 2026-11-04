@@ -13,7 +13,7 @@ for i in embarcacoes:
         if i[0] != 'submarino':
             orientacao = int(input('[1] Vertical [2] Horizontal: '))
             if orientacao == 1:
-                orientcao = 'vertical'
+                orientacao = 'vertical'
             elif orientacao == 2:
                 orientacao = 'horizontal'
         else:
