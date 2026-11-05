@@ -1,3 +1,5 @@
+import random
+
 from funcoes import define_posicoes
 from funcoes import preenche_frota
 from funcoes import posicao_valida
@@ -69,15 +71,16 @@ acertos = 0
 tabuleiros = monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente)
 print(tabuleiros)
 
-
-while acertos != 10:
+jogadas_oponente = []
+acertos_oponente = 0 
+while acertos != 10 and acertos_oponente != 10:
 
     linhaj = int(input('Jogador, qual linha deseja atacar? '))
     while linhaj < 0 or linhaj > 9:
         print('Linha inválida!')
         linhaj = int(input('Jogador, qual linha deseja atacar? '))
 
-    colunaj = int(input('Jogador, qual colunna deseja atacar? '))
+    colunaj = int(input('Jogador, qual coluna deseja atacar? '))
     while colunaj < 0 or colunaj > 9:
             print('Coluna inválida!')
             colunaj = int(input('Jogador, qual coluna deseja atacar? '))
@@ -87,6 +90,22 @@ while acertos != 10:
         faz_jogada(tabuleiro_oponente, linhaj, colunaj)
         acertos = afundados(frota_oponente, tabuleiro_oponente)
         if acertos != 10:
+            linha_oponente = random.randint(0, 9)
+            coluna_oponente = random.randint(0, 9)
+            if [linha_oponente, coluna_oponente] in jogadas_oponente:
+                while [linha_oponente, coluna_oponente] in jogadas_oponente:
+                    linha_oponente = random.randint(0, 9)
+                    coluna_oponente = random.randint(0, 9)
+            jogadas_oponente.append([linha_oponente, coluna_oponente])
+            print(f'Seu oponente está atacando na linha {linha_oponente} e coluna {coluna_oponente}')
+            faz_jogada(tabuleiro_jogador, linha_oponente, coluna_oponente)
+            acertos_oponente = afundados(frota, tabuleiro_jogador)
+
             tabuleiros = monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente)
             print(tabuleiros)
-print ('Parabéns! Você derrubou todos os navios do seu oponente!')
+            if acertos_oponente == 10:
+                print ('Xi! O oponente derrubou toda a sua frota =(')
+            
+            
+if acertos_oponente != 10: 
+    print ('Parabéns! Você derrubou todos os navios do seu oponente!')
