@@ -10,10 +10,10 @@ for i in embarcacoes:
     c = 0
     while c < i[2]:
         print(f'Insira as informações referentes ao navio {i[0]} que possui tamanho {i[1]}')
-        linha = int(input('linha: '))
-        coluna = int(input('coluna: '))
+        linha = int(input('Linha: '))
+        coluna = int(input('Coluna: '))
         if i[0] != 'submarino':
-            orientacao = int(input('[1] Vertical [2] Horizontal: '))
+            orientacao = int(input('Orientação: [1] Vertical [2] Horizontal '))
             if orientacao == 1:
                 orientacao = 'vertical'
             elif orientacao == 2:
@@ -31,6 +31,7 @@ for i in embarcacoes:
 from funcoes import posiciona_frota
 from funcoes import afundados
 from funcoes import faz_jogada
+
 
 frota_oponente = {
     'porta-aviões': [
@@ -100,11 +101,11 @@ while acertos != 10 and acertos_oponente != 10:
             print(f'Seu oponente está atacando na linha {linha_oponente} e coluna {coluna_oponente}')
             faz_jogada(tabuleiro_jogador, linha_oponente, coluna_oponente)
             acertos_oponente = afundados(frota, tabuleiro_jogador)
-
-            tabuleiros = monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente)
-            print(tabuleiros)
             if acertos_oponente == 10:
-                print ('Xi! O oponente derrubou toda a sua frota =(')
+                print('Xi! O oponente derrubou toda a sua frota =(')
+            else:
+                tabuleiros = monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente)
+                print(tabuleiros)
             
             
 if acertos_oponente != 10: 
